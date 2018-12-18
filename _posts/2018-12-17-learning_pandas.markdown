@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Learning Pandas"
-date:       2018-12-18 04:45:51 +0000
+date:       2018-12-17 23:45:52 -0500
 permalink:  learning_pandas
 ---
 
@@ -14,7 +14,7 @@ Eight weeks have passed since I started the self-paced data science program and 
 import pandas as pd 
  df = pd.read_table(‘file.csv')
  df = pd.read_table(r'file.txt', sep="|")
- df[df['Insurance1'].str.startswith('MCARE') &     df[‘ProcedureDescription’].str.startswith('Coronary artery bypass graft’)]
+ df[df['Insurance1'].str.startswith('MCARE') & df[‘ProcedureDescription’].str.startswith('Coronary artery bypass graft’)]
 
  import json
  with open('NSUH.json') as data_file:    

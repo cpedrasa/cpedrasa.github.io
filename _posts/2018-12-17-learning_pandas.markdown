@@ -12,25 +12,27 @@ Eight weeks have passed since I started the self-paced data science program and 
     
  ```
 import pandas as pd 
- df = pd.read_table(‘file.csv')
- df = pd.read_table(r'file.txt', sep="|")
- df[df['Insurance1'].str.startswith('MCARE') & df[‘ProcedureDescription’].str.startswith('Coronary artery bypass graft’)]
+df = pd.read_table(‘file.csv')
+df = pd.read_table(r'file.txt', sep="|")
+df[df['Insurance1'].str.startswith('MCARE') & df[‘ProcedureDescription’].str.startswith('Coronary artery bypass graft’)]
 
- import json
- with open('NSUH.json') as data_file:    
+import json
+with open('NSUH.json') as data_file:    
 data = json.load(data_file)
 ```
 
 * I didn’t have to import multiple flat files into SQL in order to link the files/tables to perform data analysis and manipulations. 
      
-   `pd.concat([df1, df3], join=“inner")`
+```
+pd.concat([df1, df3], join=“inner")
+```
 
 * Creating filters, pivots, and charts can be completed easily. There is no longer a need to create multiple versions of excel files to show the different filters, pivot tables, and charts that I have created for data exploration. 
 
  ```
-  import matplotlib.pyplot as plt
-  %matplotlib inline
-   df = pd.DataFrame()
+import matplotlib.pyplot as plt
+%matplotlib inline
+df = pd.DataFrame()
 
 df.plot.<TAB>
 df.plot.area     df.plot.barh     df.plot.hist     df.plot.line     
@@ -47,18 +49,23 @@ from pandasql import sqldf
 
 ```
 import pandas as pd 
-    import pyodbc
+import pyodbc
+
     #Parameters
-    server = ‘HIE_Server'
-    db = 'HIE_Data'
+server = 'server'
+db = 'database'
+Uid = 'uid'
+password ='pwd'
+
     #Connection
-   conn = pyodbc.connect('DRIVER={SQL Server};SERVER=' + server + ';DATABASE=' + db + ';Trusted_Connection=yes')
+conn = pyodbc.connect('DRIVER={SQL Server};SERVER=' + server + ';DATABASE=' + db + ';Uid=<UID>;PWD=<password>;Trusted_Connection=yes')
+
     #query db
-    sql = ''' SELECT TOP 5* 
-    FROM Medications'''
+sql = ''' SELECT TOP 5* 
+                    FROM Medications;'''
     
-    df = pd.read_sql(sql, conn)
-    df.head()
+df = pd.read_sql(sql, conn)
+df.head()
 ```
    
 It’s been a great learning experience so far and I look forward to learning more data science tools to help improve and speed up my work.

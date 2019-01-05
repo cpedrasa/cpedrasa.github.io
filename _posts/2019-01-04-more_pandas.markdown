@@ -5,16 +5,14 @@ date:       2019-01-04 23:29:07 -0500
 permalink:  more_pandas
 ---
 
-For today's blog assignment, I plan to write about something that we did not cover on the course. It took me a while to think about what I could possibly add since the data science course materials are truly comprehensive. So I thought it would be useful to provide more Pandas references on accessing data, saving data and the pandas.cut data manipulation example that we may not have covered in the sections in detail.
+For today's blog assignment, we are supposed to write about something that we did not cover on the course. It took me a while to think about what I could possibly add since the data science course materials are truly comprehensive. So I thought it would be useful to provide more Pandas references on accessing data, saving data and the pandas.cut data manipulation example that we may not have covered in the sections in detail.
 
 The Pandas sections provided numerous examples on accessing data and saving data using the following:
-
 ```
 pd.read_csv() -- to_csv 
 pd.read_excel() -- to_excel 
 pd.read_json() -- to_json
 ```
-
 A reference to the full pandas documentation was provided but here are additional file formats that can be read and saved in pandas.
 
 ```

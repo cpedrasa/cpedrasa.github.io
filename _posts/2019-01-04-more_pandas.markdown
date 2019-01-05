@@ -14,7 +14,6 @@ pd.read_excel() -- to_excel
 pd.read_json() -- to_json
 ```
 A reference to the full pandas documentation was provided but here are additional file formats that can be read and saved in pandas.
-
 | Data Description          |              Read           |  Write/Save      |
 | ------------------------ | ------------------- | ---------------  |
 | Feather Format             | read_feather         | to_feather        |
@@ -25,7 +24,6 @@ A reference to the full pandas documentation was provided but here are additiona
 | SQL                                   | read_sql                 | to_sql                 |
 
 The course provided examples to read from SQLite database but for those who would like to connect to the Microsoft SQL database, the following code worked for me.
-
 ```
 import pandas as pd 
 import pyodbc
@@ -35,7 +33,6 @@ db = 'database' *#enter the database name Uid = 'uid' password ='pwd'*
 
 #Connection
 conn = pyodbc.connect('DRIVER={SQL Server};SERVER=' + server + ';DATABASE=' + db + ';Uid=;PWD=;Trusted_Connection=yes')
-
 #query db
 sql = ''' SELECT TOP 5* FROM Medications;'''
 df = pd.read_sql(sql, conn) df.head()
@@ -44,18 +41,14 @@ Finally, a pandas data manipulation function that could be useful for changing a
 ```
 import pandas as pd
 A= [8,34,86,90,3,31,44,77,38,16,45,35,32,12,42,34,34,48,51]
-
 Age_Col = pd.DataFrame({'Age':A})
-
 ages = ['0-4','5-9','10-14','15-19','20-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80-84','85-89','90-95']
 Age_Col.head()
-
 Age_Col['age_group'] = pd.cut(Age_Col.Age,range(0,100,5),right=False, labels=ages)
-
 Age_Col[['Age','age_group']].head(10)
 ```
 Output:  
-|     | Age	| age_group|
+|   i | Age	| age_group|
 | --| ----- | ------------|
 | 0	|8	      | 5-9               |             
 | 1	|34	    |	30-34          |
@@ -67,3 +60,5 @@ Output:
 | 7	|77	    |	75-79          |
 | 8	|38	    |	35-39          |
 | 9	|16	    |	15-19          |
+
+

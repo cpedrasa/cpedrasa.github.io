@@ -15,7 +15,6 @@ pd.read_json() -- to_json
 ```
 A reference to the full pandas documentation was provided but here are additional file formats that can be read and saved in pandas.
 
-
 | Data Description          |              Read           |  Write/Save      |
 | ------------------------ | ------------------- | ---------------  |
 | Feather Format             | read_feather         | to_feather        |
@@ -25,15 +24,12 @@ A reference to the full pandas documentation was provided but here are additiona
 | Python Pickle Format| read_pickle           |  to_pickle          |
 | SQL                                   | read_sql                 | to_sql                 |
 
-
-
 The course provided examples to read from SQLite database but for those who would like to connect to the Microsoft SQL database, the following code worked for me.
 
 ```
 import pandas as pd 
 import pyodbc
 
-#Parameters
 server = 'server' *#replace 'server' with your database server name *
 db = 'database' *#enter the database name Uid = 'uid' password ='pwd'*
 
@@ -42,12 +38,9 @@ conn = pyodbc.connect('DRIVER={SQL Server};SERVER=' + server + ';DATABASE=' + db
 
 #query db
 sql = ''' SELECT TOP 5* FROM Medications;'''
-
 df = pd.read_sql(sql, conn) df.head()
 ```
-
 Finally, a pandas data manipulation function that could be useful for changing a continuous variable to a categorical variable is the pandas function called ***cut***.   It could be a useful binning tool for our data exploration tasks. Please see the example of how pandas.cut could convert ages to groups of age ranges.
-
 ```
 import pandas as pd
 A= [8,34,86,90,3,31,44,77,38,16,45,35,32,12,42,34,34,48,51]
@@ -61,7 +54,6 @@ Age_Col['age_group'] = pd.cut(Age_Col.Age,range(0,100,5),right=False, labels=age
 
 Age_Col[['Age','age_group']].head(10)
 ```
-
 Output:  
 |     | Age	| age_group|
 | --| ----- | ------------|

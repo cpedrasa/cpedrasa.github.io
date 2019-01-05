@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "More Pandas"
-date:       2019-01-05 04:29:07 +0000
+date:       2019-01-04 23:29:07 -0500
 permalink:  more_pandas
 ---
 

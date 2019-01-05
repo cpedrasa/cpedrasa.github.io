@@ -29,8 +29,10 @@ The course provided examples to read from SQLite database but for those who woul
 import pandas as pd 
 import pyodbc
 
-server = 'server' *#replace 'server' with your database server name *
-db = 'database' *#enter the database name Uid = 'uid' password ='pwd'*
+server = 'server' 
+db = 'database'  
+Uid = 'uid' 
+password ='pwd'
 
 #Connection
 conn = pyodbc.connect('DRIVER={SQL Server};SERVER=' + server + ';DATABASE=' + db + ';Uid=;PWD=;Trusted_Connection=yes')

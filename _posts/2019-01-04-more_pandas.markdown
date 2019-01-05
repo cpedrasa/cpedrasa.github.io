@@ -8,11 +8,11 @@ permalink:  more_pandas
 For today's blog assignment, we are supposed to write about something that we did not cover on the course. It took me a while to think about what I could possibly add since the data science course materials are truly comprehensive. So I thought it would be useful to provide more Pandas references on accessing data, saving data and the pandas.cut data manipulation example that we may not have covered in the sections in detail.
 
 The Pandas sections provided numerous examples on accessing data and saving data using the following:
-
-* pd.read_csv() -- to_csv 
-* pd.read_excel() -- to_excel 
-* pd.read_json() -- to_json
-
+```
+pd.read_csv() -- to_csv 
+pd.read_excel() -- to_excel 
+pd.read_json() -- to_json
+```
 A reference to the full pandas documentation was provided but here are additional file formats that can be read and saved in pandas.
 | Data Description          |              Read           |  Write/Save      |
 | ------------------------ | ------------------- | ---------------  |
@@ -48,16 +48,17 @@ Age_Col['age_group'] = pd.cut(Age_Col.Age,range(0,100,5),right=False, labels=age
 Age_Col[['Age','age_group']].head(10)
 ```
 Output:  
-|      i        |     Age   | age_group|
-| ------- | -------- | ------------ |
-|      0      |        8      |         5-9       |
-|      1      |        34   |       30-34    |
-|      2      |        86   |       85-89    |
-|      3      |        90   |       90-95    |
-|      4      |        3      |         0-4       |
-|      5      |        31   |       30-34    |
-|      6      |        44   |       40-44    |
-|      7      |        77   |       75-79    |
-|      8      |        38   |       35-39    |
-|      9      |        16   |       15-19    |
+|   i | Age	| age_group|
+| --| ----- | ------------|
+| 0	|8	      | 5-9               |             
+| 1	|34	    |	30-34          |
+| 2	|86	    |	85-89          |
+| 3	|90	    |	90-95          |
+| 4	|3		    |	0-4               |
+| 5	|31	    | 30-34          |
+| 6	|44	    |	40-44          |
+| 7	|77	    |	75-79          |
+| 8	|38	    |	35-39          |
+| 9	|16	    |	15-19          |
+
 

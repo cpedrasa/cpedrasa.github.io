@@ -16,14 +16,16 @@ pd.read_json() -- to_json
 A reference to the full pandas documentation was provided but here are additional file formats that can be read and saved in pandas.
 
 ```
-**Data Description	               Read 	                       Write/Save**
-Feather Format	             read_msgpack  	       to_msgpack
-Msgpack	                           read_feather 	           to_feather
-Stata	                                   read_stata	                  to_stata
-SAS	                                     read_sas	
-Python Pickle Format	 read_pickle	                to_pickle
-SQL	                                    read_sql	                       to_sql
-Google Big Query      	read_gbq	                       to_gbq
+
+| Data Description          |              Read           |  Write/Save      |
+| ------------------------ | ------------------- | ---------------  |
+| Feather Format            | read_feather         | to_feather        |
+| Msgpack                         | read_msgpack    | to_msg_pack  |
+| Stata                                 | read_stata             | to_stata            |
+| SAS                                   | read_sas                |                              |
+| Python Pickle Format| read_pickle           |  to_pickle          |
+| SQL                                   | read_sql                 | to_sql                 |
+
 ```
 
 The course provided examples to read from SQLite database but for those who would like to connect to the Microsoft SQL database, the following code worked for me.

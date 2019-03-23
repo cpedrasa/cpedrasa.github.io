@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Exploratory Data Analysis"
-date:       2019-03-23 23:03:08 +0000
+date:       2019-03-23 19:03:09 -0400
 permalink:  exploratory_data_analysis
 ---
 

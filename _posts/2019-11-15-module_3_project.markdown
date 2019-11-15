@@ -16,21 +16,19 @@ Northwind would like to administer pricing policies involving quantity discounts
 ###  2.	Examine the Research: 
 The Data scientist will work with the Marketing Manager and other Business stakeholders to review the current best practice guidelines from the economics and marketing literature in the quantity discounts to understand the metrics for optimization. This step includes the Data Science Framework iterative processes of obtaining the data, cleansing the data, exploring the data to understand the business problem/question and help finding the appropriate hypothesis test (test statistic) to use.
 
-          * Stating the problem and understanding the statistical methods that will be used during the framing of the problem.           
-          * After loading all the packages/libraries needed to work on the project, the initial step is to obtain the data by querying the SQLite3 Northwind database. The database table system object was queried to get all the tables within the Northwind database and loaded them all as DataFrames. However, an error was encountered while querying the Orders table which, is the linking table between the two features Order and Discounts and the rest of the other features located in the Customer, Products, and Employee tables. As a workaround, the Orders table was extracted manually by exporting the table as a file and then importing it as a dataframe.   
-          * Exploratory Data Analysis was conducted to have an understanding of the data types, distributions, and relationship between the variables. Summary statistics and Data visualizations like histograms, QQ plots, violin plots, box plots, scatter matrix, heat maps, and bar charts aided in understanding the data distribution, detecting outliers and selecting imputation methods needed to clean our data.  
-          * Data Selection:  A random sample distribution was created for the experimental (with. Discounts) group and control group (no discount).  Repeated random sample of our quantitative variables was obtained to help with the hypothesis testing and selecting features that are most relevant to our outcome variable.  
-          * Based on our data understanding, we select the statistical testing method that is appropriate for the problem or question we are trying to answer.   
+   * Stating the problem and understanding the statistical methods that will be used during the framing of the problem.           
+   * After loading all the packages/libraries needed to work on the project, the initial step is to obtain the data by querying the SQLite3 Northwind database. The database table system object was queried to get all the tables within the Northwind database and loaded them all as DataFrames. However, an error was encountered while querying the Orders table which, is the linking table between the two features Order and Discounts and the rest of the other features located in the Customer, Products, and Employee tables. As a workaround, the Orders table was extracted manually by exporting the table as a file and then importing it as a dataframe.   
+   * Exploratory Data Analysis was conducted to have an understanding of the data types, distributions, and relationship between the variables. Summary statistics and Data visualizations like histograms, QQ plots, violin plots, box plots, scatter matrix, heat maps, and bar charts aided in understanding the data distribution, detecting outliers and selecting imputation methods needed to clean our data.  
+   * Data Selection:  A random sample distribution was created for the experimental (with. Discounts) group and control group (no discount).  Repeated random sample of our quantitative variables was obtained to help with the hypothesis testing and selecting features that are most relevant to our outcome variable.  
+   * Based on our data understanding, we select the statistical testing method that is appropriate for the problem or question we are trying to answer.   
           
 ###  3.	Hypothesis Testing Steps: 
 Before we run any hypothesis test, we need to specify the two hypotheses: the null hypothesis (H0) and the Alternate Hypothesis (Ha). we start by assuming the null hypothesis which is "there is no difference between the quantity of product ordered with discounts or without discounts and that what we're seeing is just random probability that the difference is due to chance versus not. We are interested in disproving the null hypothesis.  
 
-          * We set the Alpha Level ( 𝛼 ) to 0.05 or 5% significance level. Alpha is a threshold value used to judge whether a test statistic is statistically significant.
-          * Identify the test statistic to be used to assess the truth of the null hypothesis.
-
-          * Compute the p-value. The smaller the P-value, the stronger the evidence against the null hypothesis. If the probability level is less than our chosen alpha level, we reject the null hypothesis of equal means and conclude that the means are different.
-
-          * Compare the p-value to the significance value alpha. If p<=alpha, that the observed effect is statistically significant, the null hypothesis is ruled out, and the alternative hypothesis is valid. The confidence limits of the difference allow us to put bounds on the size of the difference. If these limits are narrow and close to zero, we might determine that even though our results are statistically significant, the magnitude of their difference is not of practical interest.
+   * We set the Alpha Level ( 𝛼 ) to 0.05 or 5% significance level. Alpha is a threshold value used to judge whether a test statistic is statistically significant.
+   * Identify the test statistic to be used to assess the truth of the null hypothesis.
+   * Compute the p-value. The smaller the P-value, the stronger the evidence against the null hypothesis. If the probability level is less than our chosen alpha level, we reject the null hypothesis of equal means and conclude that the means are different.
+    * Compare the p-value to the significance value alpha. If p<=alpha, that the observed effect is statistically significant, the null hypothesis is ruled out, and the alternative hypothesis is valid. The confidence limits of the difference allow us to put bounds on the size of the difference. If these limits are narrow and close to zero, we might determine that even though our results are statistically significant, the magnitude of their difference is not of practical interest.
 ###  4.  Conduct the Experiment. 
 After we explored the data, formulated the hypothesis, and decided on the correct hypothesis test to use, we executed the statistical test. To find out whether there is statistical evidence that the experimental and control group are significantly different, the Independent Samples t Test was used.  The Independent Samples t Test is a parametric test with the following assumptions:
           * The data are continuous (not discrete). We are checking for means of quantity i.e. continuous data.
@@ -48,9 +46,9 @@ We've seen that there are 10 distinct discount amounts namely 0.05,0.10,0.20, 0.
 We utilized the one-way ANOVA as the statistical test since we are comparing means for three or more populations and are testing only one factor i.e. to see whether the variations in the quantity or product ordered are due to the discount levels or whether the variations are purely random.
 To use ANOVA, the following conditions must be present:
 
-          * The populations of interest must be normally distributed.
-          * The samples must be independent of each other.
-          * Each population must have the same variance.
+   * The populations of interest must be normally distributed.
+   * The samples must be independent of each other.
+   * Each population must have the same variance.
 
 We know from our previous testing that our sample has unequal variances and that the distributions are not perfectly normal. ANOVA is robust to the homogeneity of variance violation and to data that are not normally distributed. Due to our sufficiently large random sample we proceeded with the test as we are assuming that the distribution of means calculated from repeated sampling will approach normality. We can consider normality as a given for us due to the central limit theorem for large samples.
 

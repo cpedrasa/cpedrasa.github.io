@@ -16,29 +16,30 @@ Northwind would like to administer pricing policies involving quantity discounts
 ###  2.	Examine the Research: 
 The Data scientist will work with the Marketing Manager and other Business stakeholders to review the current best practice guidelines from the economics and marketing literature in the quantity discounts to understand the metrics for optimization. This step includes the Data Science Framework iterative processes of obtaining the data, cleansing the data, exploring the data to understand the business problem/question and help finding the appropriate hypothesis test (test statistic) to use.
 
-•	 Stating the problem and understanding the statistical methods that will be used during the framing of the problem.           
-•	After loading all the packages/libraries needed to work on the project, the initial step is to obtain the data by querying the SQLite3 Northwind database. The database table system object was queried to get all the tables within the Northwind database and loaded them all as DataFrames. However, an error was encountered while querying the Orders table which, is the linking table between the two features Order and Discounts and the rest of the other features located in the Customer, Products, and Employee tables. As a workaround, the Orders table was extracted manually by exporting the table as a file and then importing it as a dataframe.   
-•	Exploratory Data Analysis was conducted to have an understanding of the data types, distributions, and relationship between the variables. Summary statistics and Data visualizations like histograms, QQ plots, violin plots, box plots, scatter matrix, heat maps, and bar charts aided in understanding the data distribution, detecting outliers and selecting imputation methods needed to clean our data.  
-•	Data Selection:  A random sample distribution was created for the experimental (with. Discounts) group and control group (no discount).  Repeated random sample of our quantitative variables was obtained to help with the hypothesis testing and selecting features that are most relevant to our outcome variable.  
-•	Based on our data understanding, we select the statistical testing method that is appropriate for the problem or question we are trying to answer.   
+ * Stating the problem and understanding the statistical methods that will be used during the framing of the problem.           
+ * After loading all the packages/libraries needed to work on the project, the initial step is to obtain the data by querying the SQLite3 Northwind database. The database table system object was queried to get all the tables within the Northwind database and loaded them all as DataFrames. However, an error was encountered while querying the Orders table which, is the linking table between the two features Order and Discounts and the rest of the other features located in the Customer, Products, and Employee tables. As a workaround, the Orders table was extracted manually by exporting the table as a file and then importing it as a dataframe.   
+* Exploratory Data Analysis was conducted to have an understanding of the data types, distributions, and relationship between the variables. Summary statistics and Data visualizations like histograms, QQ plots, violin plots, box plots, scatter matrix, heat maps, and bar charts aided in understanding the data distribution, detecting outliers and selecting imputation methods needed to clean our data.  
+* Data Selection:  A random sample distribution was created for the experimental (with. Discounts) group and control group (no discount).  Repeated random sample of our quantitative variables was obtained to help with the hypothesis testing and selecting features that are most relevant to our outcome variable.  
+* Based on our data understanding, we select the statistical testing method that is appropriate for the problem or question we are trying to answer.   
           
 ###  3.	Hypothesis Testing Steps: 
 Before we run any hypothesis test, we need to specify the two hypotheses: the null hypothesis (H0) and the Alternate Hypothesis (Ha). we start by assuming the null hypothesis which is "there is no difference between the quantity of product ordered with discounts or without discounts and that what we're seeing is just random probability that the difference is due to chance versus not. We are interested in disproving the null hypothesis.  
-•	We set the Alpha Level ( 𝛼 ) to 0.05 or 5% significance level. Alpha is a threshold value used to judge whether a test statistic is statistically significant.
-•	Identify the test statistic to be used to assess the truth of the null hypothesis.
-•	Compute the p-value. The smaller the P-value, the stronger the evidence against the null hypothesis. If the probability level is less than our chosen alpha level, we reject the null hypothesis of equal means and conclude that the means are different.
-•	Compare the p-value to the significance value alpha. If p<=alpha, that the observed effect is statistically significant, the null hypothesis is ruled out, and the alternative hypothesis is valid. The confidence limits of the difference allow us to put bounds on the size of the difference. If these limits are narrow and close to zero, we might determine that even though our results are statistically significant, the magnitude of their difference is not of practical interest.  
+ * We set the Alpha Level ( 𝛼 ) to 0.05 or 5% significance level. Alpha is a threshold value used to judge whether a test statistic is statistically significant.
+ * Identify the test statistic to be used to assess the truth of the null hypothesis.
+ * Compute the p-value. The smaller the P-value, the stronger the evidence against the null hypothesis. If the probability level is less than our chosen alpha level, we reject the null hypothesis of equal means and conclude that the means are different.
+ * Compare the p-value to the significance value alpha. If p<=alpha, that the observed effect is statistically significant, the null hypothesis is ruled out, and the alternative hypothesis is valid. The confidence limits of the difference allow us to put bounds on the size of the difference. If these limits are narrow and close to zero, we might determine that even though our results are statistically significant, the magnitude of their difference is not of practical interest.  
 
 ###  4.  Conduct the Experiment. 
 After we explored the data, formulated the hypothesis, and decided on the correct hypothesis test to use, we executed the statistical test. To find out whether there is statistical evidence that the experimental and control group are significantly different, the Independent Samples t Test was used.  The Independent Samples t Test is a parametric test with the following assumptions:
-•	The data are continuous (not discrete). We are checking for means of quantity i.e. continuous data.
-•	The data follow the normal probability distribution.
-•	The variances of the two populations are equal. (If not, the Welch Unequal-Variance T test is used.)
-•	The two samples are independent. There is no relationship between the individuals in one sample as compared to the other and cannot influence the other group.
-•	Both samples are simple random samples from their respective populations. Each individual in the population has an equal probability of being selected in the sample. 
- •	No outliers
- •	Roughly balanced design (i.e., same number of subjects in each group) are ideal. Extremely unbalanced designs increase the possibility that violating any of the requirements/assumptions threaten the validity of the Independent Samples t Test.
-•	When one or more of the assumptions for the Independent Samples t Test are not met, we may want to run the nonparametric Mann-Whitney U Test instead.
+
+ * The data are continuous (not discrete). We are checking for means of quantity i.e. continuous data.
+ * The data follow the normal probability distribution.
+ * The variances of the two populations are equal. (If not, the Welch Unequal-Variance T test is used.)
+ * The two samples are independent. There is no relationship between the individuals in one sample as compared to the other and cannot influence the other group.
+ * Both samples are simple random samples from their respective populations. Each individual in the population has an equal probability of being selected in the sample. 
+  * No outliers
+  * Roughly balanced design (i.e., same number of subjects in each group) are ideal. Extremely unbalanced designs increase the possibility that violating any of the requirements/assumptions threaten the validity of the Independent Samples t Test.
+ * When one or more of the assumptions for the Independent Samples t Test are not met, we may want to run the nonparametric Mann-Whitney U Test instead.
 
 ###  5.	Analyze experimental results:  
 We rejected the NULL hypothesis and have evidence that there are significant differences in the mean quantity of product between our control and experimental groups, so the next step, is to measure which level of discount is significant.
@@ -62,20 +63,25 @@ Our test has an effect size of 6.9 which is a large effect and the power of the 
 
 ### 7.	Interpret Findings:   
 #### Does discount amount have a statistically significant effect on the quantity of a product in an order? If so, at what level(s) of discount?
-•	Discount has a significant effect on quantity ordered.
-#### What levels of discounts have a statistically significant effect on the quantity of a product in an order?
-•	There is enough evidence to support the claim that there is a difference in mean quantity of orders between discount levels. 5%, 15%, 20%, and 25% discount levels have a significant effect on quantity of product ordered.
-We also looked at other features that may have an effect on quantity ordered and discount motivations such as product categories, salespersons granting discounts, and customers.
-There are certain products that are more strongly in the customer focus. Knowing these primary products will help set competitive price. Knowing your secondary products could give you more flexibility with pricing.
-#### Is there a difference in the mean quantity of order between product categories?
-•	There is NOT enough evidence to support the claim that there is a difference in mean quantity between product categories.
-#### Is there a difference in the mean quantity of order between product categories and discounts?
-•	There is NOT enough evidence to support the claim that there is a difference in mean quantity between product categories and whether or not a discount is applied.
-#### Is there a difference in the mean quantity of order between salespersons and whether or not discounts are applied?
-•	There is NOT enough evidence to support the claim that there is statistically significant difference in average quantity of product ordered between salespersons.
-Is there a difference in the Average Total Sales between Countries?  
+* Discount has a significant effect on quantity ordered.  
 
-•	There is a statistically significant difference in the average Total Sales between customers from Austria & Argentina, Austria & Brazil, Austria & Finland, Austria & France, Austria & Italy, Austria & Mexico, Austria & Spain, Austria & UK, Austria & Venezuela. While Austria has the largest Total sales followed by Portugal, the test however didn't find a significant difference in the mean Total sales between these two countries.
+#### What levels of discounts have a statistically significant effect on the quantity of a product in an order?
+* There is enough evidence to support the claim that there is a difference in mean quantity of orders between discount levels. 5%, 15%, 20%, and 25% discount levels have a significant effect on quantity of product ordered.
+* We also looked at other features that may have an effect on quantity ordered and discount motivations such as product categories, salespersons granting discounts, and customers.
+* There are certain products that are more strongly in the customer focus. Knowing these primary products will help set competitive price. Knowing your secondary products could give you more flexibility with pricing.  
+
+#### Is there a difference in the mean quantity of order between product categories?
+* There is NOT enough evidence to support the claim that there is a difference in mean quantity between product categories.  
+
+#### Is there a difference in the mean quantity of order between product categories and discounts?
+* There is NOT enough evidence to support the claim that there is a difference in mean quantity between product categories and whether or not a discount is applied.  
+#### Is there a difference in the mean quantity of order between salespersons and whether or not discounts are applied?
+* There is NOT enough evidence to support the claim that there is statistically significant difference in average quantity of product ordered between salespersons.   
+* 
+#### Is there a difference in the Average Total Sales between Countries?  
+
+* There is a statistically significant difference in the average Total Sales between customers from Austria & Argentina, Austria & Brazil, Austria & Finland, Austria & France, Austria & Italy, Austria & Mexico, Austria & Spain, Austria & UK, Austria & Venezuela. While Austria has the largest Total sales followed by Portugal, the test however didn't find a significant difference in the mean Total sales between these two countries.  
+
 I hope the findings above could provide a baseline information to help the Marketing Team in discount pricing and help guide further exploration to determine where discount has an effect in boosting volume of sales and profit. Further study is recommended to determine the variety of motivations for quantity discounts to help provide guidelines to the organization in designing quantity discount schedules and set out the most fruitful directions for future research.
 
 

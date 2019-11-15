@@ -1,10 +1,9 @@
 ---
 layout: post
 title:      "Module 3 Project"
-date:       2019-11-15 06:39:03 +0000
+date:       2019-11-15 01:39:04 -0500
 permalink:  module_3_project
 ---
-
 
 ## Project Background
 For the Data Science Module 3 project requirements, we worked with the Northwind database--a free, open-source dataset created by Microsoft containing data from a fictional company. This project involves gathering information from a real-world database and use of statistical analysis and hypothesis testing to generate analytical insights to answer the main question, “Does discount amount have a statistically significant effect on the quantity of a product in an order? If so, at what level(s) of discount?”

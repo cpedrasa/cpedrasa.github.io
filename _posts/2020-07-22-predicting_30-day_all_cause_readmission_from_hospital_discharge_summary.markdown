@@ -59,16 +59,15 @@ After cleaning the data, we need to convert the discharge text to numbers. We ma
 
 "CountVectorizer" will be utilized to tokenize a collection of text documents,  build a vocabulary of known words and also to encode new documents using that vocabulary. Here are the steps:
 
-1.  Create an instance of the CountVectorizer class.    
+* 1. Create an instance of the CountVectorizer class.    
 ```console
 vector = CountVectorizer(max_features = 3000, tokenizer = clean_tokenize, stop_words = stop_words)
 ```  
-2.  Call the fit() function in order to learn a vocabulary from one or more documents.  
+* 2. Call the fit() function in order to learn a vocabulary from one or more documents.  
 ```console
 vector.fit(df_train.TEXT.values)
 ```
-3.  Call the transform() function on one or more documents as needed to encode each as a vector.  
-
+* 3. Call the transform() function on one or more documents as needed to encode each as a vector.  
 ```console
 X_train_tf = vect.transform(df_train.TEXT.values)
 X_valid_tf = vect.transform(df_valid.TEXT.values)
